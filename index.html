@@ -1,293 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curriculum Vitae - Mohamed Ahmed Sabra</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Sabra - Senior Telecom Architect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary-color: #2A5C82;
+            --secondary-color: #32B4C1;
+            --dark-bg: #0F172A;
+            --light-text: #F8FAFC;
+            --accent-color: #FF6B6B;
+            --success-color: #4CAF50;
+            --transition: all 0.3s ease;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #a8c0d8, #f0f4f8); /* تدرج ألوان هادئ */
-      color: #333;
-      padding: 20px 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-    }
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      width: 80%;
-      max-width: 1200px;
-      background: rgba(255, 255, 255, 0.95); /* خلفية بيضاء مع شفافية بسيطة */
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      transition: transform 0.3s ease-in-out;
-      transform: scale(0.98);
-    }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
 
-    .container:hover {
-      transform: scale(1);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* Left Section */
-    .left {
-      width: 35%;
-      background: #f4f6f9; /* لون هادئ مع ظل خفيف */
-      color: #333;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      position: relative;
-      transition: all 0.3s ease-in-out;
-    }
+        /* ===== Header Styles ===== */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+        }
 
-    .left:hover {
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    }
+        .profile-header {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .left img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #d1e0e9;
-      margin-bottom: 20px;
-      transition: all 0.3s ease-in-out;
-    }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+            overflow: hidden;
+            transition: var(--transition);
+        }
 
-    .left img:hover {
-      transform: scale(1.1);
-    }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .left h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      color: #2c3e50; /* لون داكن للخط */
-    }
+        /* ===== Navigation Bar ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--dark-bg);
+            padding: 1rem 0;
+            z-index: 1001;
+        }
 
-    .left p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #7f8c8d; /* لون فاتح للخط */
-    }
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
 
-    .left ul {
-      list-style: none;
-      padding: 0;
-    }
+        nav ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
 
-    .left ul li {
-      font-size: 16px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      padding-left: 20px;
-      position: relative;
-    }
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
 
-    .left ul li:before {
-      content: '\2022';
-      font-size: 20px;
-      color: #3498db; /* لون أزرق هادئ */
-      position: absolute;
-      left: 0;
-    }
+        nav ul li a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
 
-    .left ul li i {
-      margin-right: 10px;
-      color: #3498db;
-    }
+        /* ===== Main Content Sections ===== */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-    /* Right Section */
-    .right {
-      width: 60%;
-      padding: 30px;
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
-      position: relative;
-      color: #333;
-    }
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
 
-    .right h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
-      color: #3498db; /* لون أزرق هادئ */
-      font-weight: 700;
-      text-transform: uppercase;
-      border-bottom: 3px solid #3498db;
-      padding-bottom: 5px;
-    }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--accent-color);
+        }
 
-    .section {
-      margin-bottom: 30px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
+        .section-title:hover {
+            transform: translateX(10px);
+            opacity: 0.8;
+        }
 
-    .section:nth-child(1) {
-      animation-delay: 0.3s;
-    }
+        /* ===== Skills Grid ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
 
-    .section:nth-child(2) {
-      animation-delay: 0.6s;
-    }
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
 
-    .section:nth-child(3) {
-      animation-delay: 0.9s;
-    }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
 
-    .section:nth-child(4) {
-      animation-delay: 1.2s;
-    }
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transition: width 1s ease;
+        }
 
-    .section p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #555;
-    }
+        /* ===== Testimonial Hover Animation ===== */
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .section ul {
-      list-style: none;
-      padding: 0;
-    }
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
 
-    .section ul li {
-      font-size: 16px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      padding-left: 15px;
-      position: relative;
-    }
+        /* ===== Modal ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
 
-    .section ul li:before {
-      content: '\2022';
-      font-size: 22px;
-      color: #3498db;
-      position: absolute;
-      left: 0;
-    }
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 80%;
+        }
 
-    .section ul li i {
-      margin-right: 10px;
-      color: #3498db;
-    }
+        .modal.open {
+            display: flex;
+        }
 
-    /* Hover Effects */
-    .section h3, .section ul li {
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+        /* ===== Icon Hover Effects ===== */
+        .section-title i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-    .section h3:hover, .section ul li:hover {
-      color: #1abc9c;
-      transform: translateX(5px);
-    }
+        .section-title i:hover {
+            transform: scale(1.2);
+            color: var(--secondary-color);
+        }
 
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-      .left, .right {
-        width: 100%;
-        margin-left: 0;
-      }
-    }
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .profile-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
 
-  </style>
+            .profile-img {
+                margin: 0 auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+    </nav>
 
-  <div class="container">
-    <!-- Left Section -->
-    <div class="left">
-      <img src="https://i.imgur.com/IDKxTWX.jpeg" alt="Profile Photo">
-      <h1>Mohamed Ahmed Sabra</h1>
-      <p>Mobile Communication Engineer</p>
-      <ul>
-        <li><i class="fas fa-phone-alt"></i> +20 123 456 789</li>
-        <li><i class="fas fa-envelope"></i> mohamed@example.com</li>
-        <li><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</li>
-      </ul>
+    <header class="main-header" data-aos="fade-down">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-img">
+                    <img src="https://i.imgur.com/IDKxTWX.jpeg" alt="Mohamed Sabra">
+                </div>
+                <div class="profile-info">
+                    <h1>Mohamed Sabra</h1>
+                    <p class="title">Senior Telecom Architect</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +20 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i> contact@msabra.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i> Professional Summary
+            </h2>
+            <p class="summary">
+                Results-driven telecom architect with 12+ years of experience in designing and implementing 
+                5G network infrastructures. Spearheaded multimillion-dollar projects for major telecom 
+                providers across the Middle East.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up">
+                    <h3><i class="fas fa-satellite-dish"></i> 5G Network Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <h3>Vodafone Egypt</h3>
+                    <p class="duration">2020 - Present</p>
+                    <ul class="achievements">
+                        <li>Led cross-functional teams in 5G rollout</li>
+                        <li>Reduced network downtime by 40%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="project1.jpg" alt="Smart City Network">
+                    </div>
+                    <div class="project-details">
+                        <h3>Smart City Infrastructure</h3>
+                        <p>5G-powered urban network solution</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="testimonial-card" data-aos="fade-up">
+                <h3>Client Testimonial</h3>
+                <p>"Mohamed's expertise in telecom networks helped us implement a cutting-edge 5G solution!"</p>
+                <footer>- CEO, Telecom Solutions</footer>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Project Details -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3>Project Details</h3>
+            <p>More details about the project...</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
     </div>
 
-    <!-- Right Section -->
-    <div class="right">
-      <div class="section">
-        <h2>Summary</h2>
-        <p>Passionate telecom engineer with expertise in LTE/5G optimization, RF planning, and network analysis. Skilled in tools like TEMS, MATLAB, and Atoll. Eager to drive innovation in mobile communication.</p>
-      </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
-      <div class="section">
-        <h2>Skills</h2>
-        <ul>
-          <li><i class="fas fa-wifi"></i> 4G/5G Network Optimization</li>
-          <li><i class="fas fa-cogs"></i> Atoll & Genex Probe</li>
-          <li><i class="fas fa-laptop-code"></i> Python Programming</li>
-          <li><i class="fas fa-code"></i> MATLAB & Simulink</li>
-          <li><i class="fas fa-signal"></i> TEMS Investigation</li>
-        </ul>
-      </div>
+        function closeModal() {
+            document.getElementById('modal').classList.remove('open');
+        }
 
-      <div class="section">
-        <h2>Experience</h2>
-        <div>
-          <h3>Intern – Vodafone Egypt</h3>
-          <span>Jun 2024 - Aug 2024</span>
-          <p>Worked on LTE optimization and radio frequency planning using TEMS and Atoll tools.</p>
-        </div>
-        <div>
-          <h3>Course Trainee – NTI</h3>
-          <span>Sep 2024 - Dec 2024</span>
-          <p>Trained in mobile communication systems, tools, and network simulations.</p>
-        </div>
-      </div>
+        // Open modal on project click (for demonstration)
+        document.querySelector('.project-card').addEventListener('click', function() {
+            document.getElementById('modal').classList.add('open');
+        });
 
-      <div class="section">
-        <h2>Education</h2>
-        <div>
-          <h3>BSc in Communications</h3>
-          <span>Alexandria University, 2019 - 2025</span>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Languages</h2>
-        <ul>
-          <li><i class="fas fa-flag"></i> Arabic - Native</li>
-          <li><i class="fas fa-globe"></i> English - Professional</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
+        // Scroll effect for header when the user scrolls down
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.style.transform = 'translateY(0)';
+            } else {
+                header.style.transform = 'translateY(-100%)';
+            }
+        });
+    </script>
 </body>
 </html>
